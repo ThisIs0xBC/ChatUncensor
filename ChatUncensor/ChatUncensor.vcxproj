@@ -109,8 +109,6 @@
     </ClCompile>
     <ClCompile Include="ChatUncensor.cpp" />
     <ClCompile Include="GuiBase.cpp" />
-    <ClCompile Include="Settings.cpp" />
-    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui\imconfig.h" />
@@ -131,7 +129,6 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="GuiBase.h" />
     <ClInclude Include="ChatUncensor.h" />
-    <ClInclude Include="utils.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
   <ItemGroup>

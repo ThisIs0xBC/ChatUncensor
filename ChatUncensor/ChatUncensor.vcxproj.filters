@@ -81,12 +81,6 @@
     <ClCompile Include="GuiBase.cpp">
       <Filter>Plugin\src</Filter>
     </ClCompile>
-    <ClCompile Include="Settings.cpp">
-      <Filter>Plugin\src</Filter>
-    </ClCompile>
-    <ClCompile Include="utils.cpp">
-      <Filter>Plugin\src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui\imgui_rangeslider.h">
@@ -144,9 +138,6 @@
       <Filter>Plugin\header</Filter>
     </ClInclude>
     <ClInclude Include="GuiBase.h">
-      <Filter>Plugin\header</Filter>
-    </ClInclude>
-    <ClInclude Include="utils.h">
       <Filter>Plugin\header</Filter>
     </ClInclude>
   </ItemGroup>

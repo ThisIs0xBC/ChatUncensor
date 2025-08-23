@@ -4,38 +4,43 @@
 #include "bakkesmod/plugin/bakkesmodplugin.h"
 #include "bakkesmod/plugin/pluginwindow.h"
 #include "bakkesmod/plugin/PluginSettingsWindow.h"
-
-#include <utils.h>
+#include <Windows.h>
 
 #include "version.h"
 constexpr auto plugin_version = stringify(VERSION_MAJOR) "." stringify(VERSION_MINOR) "." stringify(VERSION_PATCH) "." stringify(VERSION_BUILD);
 
 constexpr auto pretty_plugin_version = "v" stringify(VERSION_MAJOR) "." stringify(VERSION_MINOR) "." stringify(VERSION_PATCH);
 
-extern std::string toLower(std::string str);
-
-class ChatUncensor: public BakkesMod::Plugin::BakkesModPlugin
-	,public SettingsWindowBase // Uncomment if you wanna render your own tab in the settings menu
-	//,public PluginWindowBase // Uncomment if you want to render your own plugin window
+struct FString
 {
-
-	//std::shared_ptr<bool> enabled;
-
-	//Boilerplate
-	void onLoad() override;
-	void onUnload() override; // Uncomment and implement if you need a unload method
-
+private:
+	// variables
+	wchar_t* data;
+	int32_t count;
+	int32_t max;
 public:
-	// Stole this idea from https://github.com/0xleft/trnslt cheers pal
-	std::vector<LogMessage> FixQueue;
+	// constructors
+	FString() = default;
+public:	
+	// functions
+	bool valid() { return data != nullptr && count > 0 && max > 0;}
+};
 
-	void RenderSettings() override; // Uncomment if you wanna render your own tab in the settings menu
-	//void RenderWindow() override; // Uncomment if you want to render your own plugin window
+struct pInternalSanitize
+{
+	FString _; // original
+	FString Sanitized; // sanitized
+};
 
-	void ReleaseHooks();
-	void HookGameStart();
-	void HookChat();
-	void RemoveCensor(LogMessage message);
-	void RemoveOriginalMessage(FGFxChatMessage* message);
-	
+class ChatUncensor: 
+	public BakkesMod::Plugin::BakkesModPlugin,
+	public SettingsWindowBase
+{
+public:
+	// overrides
+	void onLoad()		  override;
+	void RenderSettings() override; 
+public:
+	// variables
+	FString save;
 };
