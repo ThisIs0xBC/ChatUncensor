@@ -18,7 +18,7 @@ void ChatUncensor::RenderSettings() {
 	{
 		Spacing(4);
 
-		ImGui::TextColored(ImVec4(1, 0, 1, 1), "Plugin made by 0xBC");
+		ImGui::TextColored(ImVec4(1, 0, 1, 1), "Plugin made by 0xBC (Bangers n' Nyash)");
 
 		Spacing(3);
 
