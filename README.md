@@ -12,6 +12,17 @@ Removes the new in-game chat censoring in Rocket League so you can see what was 
 - Optional dual-display: show uncensored and censored versions together
 - Lightweight, automatic on load
 - Integrates with BakkesMod’s plugin list
+  ![Plugin Settings Menu](https://github.com/ThisIs0xBC/ChatUncensor/blob/master/imgs/Plugin%20Settings.png?raw=true "Plugin Settings Menu")
+
+
+---
+
+## Examples
+
+- A normal message followed by an uncensored message (with highlighting option turned off)
+  ![Uncensored Message](https://github.com/ThisIs0xBC/ChatUncensor/blob/master/imgs/With%20Highlight%20Off.png?raw=true "Uncensored Message")
+- A normal message followed by an uncensored message (with highlighting option turned on)
+  ![Uncensored Message Highlighting On](https://github.com/ThisIs0xBC/ChatUncensor/blob/master/imgs/With%20Highlight%20On.png?raw=true "Uncensored Message Highlighting On")
 
 ---
 
@@ -48,7 +59,7 @@ If you prefer to see both versions for context, enable the dual-display option.
 - Toggle via the plugin’s settings UI, or
 - Press F6 to open the Bakkesmod console, and type
   `
-  toggle uncensor_chats_remove_original_message 0
+  toggle uncensor_chats_highlight_censored_words 1
   `
 
 ## Troubleshooting
@@ -93,7 +104,7 @@ No. It only affects your local client’s display.
 This plugin simply changes how messages render locally. It doesn’t affect gameplay or modify network traffic. As such, it is completely safe to use, as is any other Bakkesmod plugin.
 
 **Can I turn it off quickly?**  
-Yes. In the plugin list, disable it, or run:  
+Yes. In the plugin list or from the plugin's settings menu, disable it, or run the following in the F6 console:  
 `toggle uncensor_chats 0`
 
 ---
