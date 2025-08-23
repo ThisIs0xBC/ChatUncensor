@@ -52,11 +52,11 @@ void ChatUncensor::onLoad()
 		auto cHighlightCensoredWords = cvarManager->getCvar("uncensor_chats_highlight_censored_words");
 		if (cHighlightCensoredWords && cHighlightCensoredWords.getBoolValue()) {
 			std::string highlightedMsg = highlightCensoredWords(p->_, p->Sanitized);
-			if (highlightedMsg.empty()) return;
-
-			gameWrapper->Execute([this, highlightedMsg](GameWrapper* gw) {
-				gameWrapper->LogToChatbox(highlightedMsg, "Uncensored");
-			});
+			if (!highlightedMsg.empty()) {
+				gameWrapper->Execute([this, highlightedMsg](GameWrapper* gw) {
+					gameWrapper->LogToChatbox(highlightedMsg, "Uncensored");
+				});
+			}
 		}
 
 		// set 
