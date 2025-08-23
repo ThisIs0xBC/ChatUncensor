@@ -24,6 +24,8 @@ public:
 public:	
 	// functions
 	bool valid() { return data != nullptr && count > 0 && max > 0;}
+	int32_t length() { return count; }
+	wchar_t* getData() { return data; }
 };
 
 struct pInternalSanitize
@@ -39,7 +41,10 @@ class ChatUncensor:
 public:
 	// overrides
 	void onLoad()		  override;
+	void onUnload()		  override;
 	void RenderSettings() override; 
+
+	std::string highlightCensoredWords(FString origMsg, FString censoredMsg);
 public:
 	// variables
 	FString save;
