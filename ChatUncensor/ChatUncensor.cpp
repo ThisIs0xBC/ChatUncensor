@@ -56,6 +56,7 @@ void ChatUncensor::onLoad()
 		if (!cUnCensorChats.getBoolValue()) return;
 		pInternalSanitize* p = (pInternalSanitize*)params; 
 		if(!p) return;
+
 		if(!save.valid()) return;
 		// not setting it back will result in a crash
 		memcpy(&p->Sanitized, &save, sizeof(FString));
