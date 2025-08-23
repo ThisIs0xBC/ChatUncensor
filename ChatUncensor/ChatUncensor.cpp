@@ -6,7 +6,7 @@ BAKKESMOD_PLUGIN(ChatUncensor, "Uncensor chats to bring toxicity back!", plugin_
 
 std::shared_ptr<CVarManagerWrapper> _globalCvarManager;
 
-// Simple key: player name + channel
+// Player name n channel as the key
 struct SenderKey {
 	std::string name;
 	uint8_t channel;
@@ -15,6 +15,7 @@ struct SenderKey {
 		return channel == o.channel && name == o.name;
 	}
 };
+
 struct SenderKeyHash {
 	size_t operator()(const SenderKey& k) const {
 		return std::hash<std::string>{}(k.name) ^ (size_t(k.channel) << 1);
